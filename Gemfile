@@ -54,6 +54,8 @@ gem 'google-authenticator-rails'
 
 gem 'devise'
 
+gem 'protected_attributes'
+
 group :test do
   gem 'capybara', '2.1.0'
 end

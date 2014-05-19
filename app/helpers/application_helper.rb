@@ -8,4 +8,10 @@ module ApplicationHelper
       "#{base_title} | #{page_title}"
     end
   end
+
+  def initial_authenticate
+  	if signed_in?
+  		authenticate_user!
+  	end
+  end
 end
