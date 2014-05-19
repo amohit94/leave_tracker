@@ -1,0 +1,23 @@
+  <div class="span8">
+    <% if @leavedates.any? %>
+      <h3>Leaves (<%= @leavedates.count %>)</h3>
+      <ol class="leavedates">
+        <%= render @leavedates %>
+      </ol>
+    <% end %>
+  </div>
+
+<script type='text/javascript'>
+$(function() {
+  $('.datepicker').datepicker();
+  $(".datepicker").datepicker('setDate', new Date());
+});
+</script>
+<% @leavedate = current_user.leavedates.build %>
+<%= form_for(@leavedate) do |f| %>
+	<%= render 'shared/error_messages' %>
+  <div class="field">
+    <%= f.text_field :date, :class => "datepicker" , values: Date.today.strftime( "%m/%d/%Y" )%>
+  </div>
+  <%= f.submit "Add Leave", class: "btn btn-large btn-primary" %>
+<% end %>

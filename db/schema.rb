@@ -11,13 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140519064506) do
+ActiveRecord::Schema.define(version: 20140519114640) do
 
-  create_table "leaves", force: true do |t|
+  create_table "leavedates", force: true do |t|
+    t.integer  "user_id"
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "leavedates", ["date"], name: "index_leavedates_on_date", unique: true
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

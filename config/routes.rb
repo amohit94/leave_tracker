@@ -1,4 +1,6 @@
 LeaveTracker::Application.routes.draw do
+  resources :leavedates, only: [:create, :destroy, :new]
+
 
   devise_for :users
   root  to: 'static_pages#home'

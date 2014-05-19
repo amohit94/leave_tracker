@@ -1,5 +1,6 @@
 <% if user_signed_in? %>
 Logged in as <strong><%= current_user.email %></strong>.
+<%= render 'leavedates/leavedate_form' %>
 <% else %>
 <div class="center hero-unit">
   <h1>Welcome to the Leave Tracker</h1>

@@ -9,6 +9,7 @@ gem 'rails', '4.0.4'
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', '2.11.0'
+  gem 'debugger'
 end
 
 gem 'bootstrap-sass', '2.3.2.0'
@@ -53,6 +54,10 @@ gem 'google-authenticator-rails'
 # gem 'debugger', group: [:development, :test]
 
 gem 'devise'
+
+gem 'jquery-ui-rails'
+
+
 
 gem 'protected_attributes'
 
