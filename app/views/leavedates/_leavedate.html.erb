@@ -1,7 +1,11 @@
+<%if leavedate.date && leavedate.created_at %>
 <li>
+
   <span class="content"><%= leavedate.date %></span>
   <span class="timestamp">
   
     Posted <%= time_ago_in_words(leavedate.created_at) %> ago.
   </span>
+  
 </li>
+<%end%>

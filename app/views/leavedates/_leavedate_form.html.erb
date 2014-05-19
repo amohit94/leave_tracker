@@ -1,10 +1,18 @@
+
   <div class="span8">
-    <% if @leavedates.any? %>
-      <h3>Leaves (<%= @leavedates.count %>)</h3>
+
+    <% if current_user.leavedates.any? %>
+
+      <h3>Currently added Leaves (<%= current_user.leavedates.count %>)</h3>
       <ol class="leavedates">
-        <%= render @leavedates %>
+        <%= render current_user.leavedates %>
       </ol>
+    <% else %>
+      No leaves to show.
     <% end %>
+    <div class="errors">
+<%= render 'shared/error_messages' %>
+</div>
   </div>
 
 <script type='text/javascript'>
@@ -13,9 +21,11 @@ $(function() {
   $(".datepicker").datepicker('setDate', new Date());
 });
 </script>
+
 <% @leavedate = current_user.leavedates.build %>
+<h3> Add new leaves? </h3>
 <%= form_for(@leavedate) do |f| %>
-	<%= render 'shared/error_messages' %>
+	
   <div class="field">
     <%= f.text_field :date, :class => "datepicker" , values: Date.today.strftime( "%m/%d/%Y" )%>
   </div>

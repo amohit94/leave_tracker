@@ -10,6 +10,8 @@ class LeavedatesController < ApplicationController
       flash[:success] = "Leave created!"
       redirect_to root_url
     else
+      #@leavedate.destroy
+      #debugger
       render 'static_pages/home'
     end
   end
