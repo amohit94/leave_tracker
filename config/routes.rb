@@ -1,5 +1,5 @@
 LeaveTracker::Application.routes.draw do
-  resources :leavedates, only: [:create, :destroy, :new, :show]
+  resources :leavedates, only: [:create, :destroy, :new, :show, :edit, :update]
 
 
   devise_for :users

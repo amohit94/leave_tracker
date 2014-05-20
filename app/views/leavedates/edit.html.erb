@@ -1,0 +1,28 @@
+<% provide(:title, "Edit Leave") %>
+<h1>Update your leave</h1>
+
+<script type='text/javascript'>
+$(function() {
+  $('.datepicker').datepicker();
+  $(".datepicker").datepicker('setDate', new Date());
+});
+</script>
+
+<div>
+<h3> Edit Leave </h3>
+<div class="errors">
+The following are the error messages.
+
+</div>
+</div>
+<%= form_for(@leavedate) do |f| %>
+  <%= render 'shared/error_messages'%>
+  
+  <div class="field">
+    <%= f.text_field :date, :class => "datepicker" , values: Date.today.strftime( "%m/%d/%Y" ), autofocus: true%>
+  </div>
+  <div><%= f.label :description %><br />
+  <%= f.text_area :description, autofocus: true, placeholder: "Add description..." %></div>
+
+  <%= f.submit "Edit Leave", class: "btn btn-large btn-primary" %>
+<% end %>

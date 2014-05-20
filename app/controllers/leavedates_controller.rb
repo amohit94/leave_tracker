@@ -26,6 +26,23 @@ def show
 	#@leavedate ||= Leavedate.new
 end
 
+def edit
+    @leavedate = Leavedate.find(params[:id])
+    #redirect_to root_url
+  end
+
+  def update
+    @leavedate = Leavedate.find(params[:id])
+    date = Date.strptime(params[:leavedate][:date], "%m/%d/%Y")
+    if @leavedate.update_attributes(date: date, description: params[:leavedate][:description])
+      # Handle a successful update.
+      flash[:success] = "Update successful"
+      redirect_to root_url
+    else
+      flash[:error] = "Update failed"
+      render 'edit'
+    end
+  end
 private
   
     def correct_user
