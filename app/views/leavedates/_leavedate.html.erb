@@ -1,11 +1,24 @@
-<%if leavedate.date && leavedate.created_at %>
-<li>
-
-  <span class="content"><%= leavedate.date %></span>
+<%if leavedate.date && leavedate.created_at and leavedate.date>=Date.today %>
+<tr>
+<td>
+  <span class="date"><%= leavedate.date.inspect %></span></td>
+  <td>
+  <div>
+  <span class="content"><%= leavedate.description %></span>
+  </div>
+  </td>
+  <td>
+  <div>
   <span class="timestamp">
   
-    Posted <%= time_ago_in_words(leavedate.created_at) %> ago.
+    Added <%= time_ago_in_words(leavedate.created_at) %> ago.
   </span>
-  
-</li>
+  <% if current_user == leavedate.user %>
+    <%= link_to content_tag(:i, "", class: "icon-trash icon-white") + "Delete", leavedate, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: leavedate.date.inspect, class: "remove_fields" %>
+  <% end %>
+  </div>
+  </td>
+</tr>
 <%end%>

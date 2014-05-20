@@ -1,5 +1,5 @@
 class AddIndexToLeavedatesDate < ActiveRecord::Migration
   def change
-  	add_index :leavedates, :date, unique: true
+  	add_index :leavedates, :date
   end
 end

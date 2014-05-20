@@ -1,20 +1,3 @@
-
-  <div class="span8">
-
-    <% if current_user.leavedates.any? %>
-
-      <h3>Currently added Leaves (<%= current_user.leavedates.count %>)</h3>
-      <ol class="leavedates">
-        <%= render current_user.leavedates %>
-      </ol>
-    <% else %>
-      No leaves to show.
-    <% end %>
-    <div class="errors">
-<%= render 'shared/error_messages' %>
-</div>
-  </div>
-
 <script type='text/javascript'>
 $(function() {
   $('.datepicker').datepicker();
@@ -22,12 +5,22 @@ $(function() {
 });
 </script>
 
+
+<div>
+<h3> Edit Leaves </h3>
+<div class="errors">
+The following are the error messages.
+<%= render 'shared/error_messages' %>
+</div>
+</div>
 <% @leavedate = current_user.leavedates.build %>
-<h3> Add new leaves? </h3>
 <%= form_for(@leavedate) do |f| %>
 	
   <div class="field">
-    <%= f.text_field :date, :class => "datepicker" , values: Date.today.strftime( "%m/%d/%Y" )%>
+    <%= f.text_field :date, :class => "datepicker" , values: Date.today.strftime( "%m/%d/%Y" ), autofocus: true%>
   </div>
+  <div><%= f.label :description %><br />
+  <%= f.text_area :description, autofocus: true, placeholder: "Add description..." %></div>
+
   <%= f.submit "Add Leave", class: "btn btn-large btn-primary" %>
 <% end %>
