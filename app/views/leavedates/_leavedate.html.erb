@@ -13,7 +13,7 @@
     <%= link_to content_tag(:i, "", class: "icon-remove icon-black") + "Delete", leavedate, method: :delete,
                                      data: { confirm: "You sure?" },
                                      title: leavedate.date.inspect, class: "remove_fields btn", style: "margin:3px" %>
-    <%= link_to content_tag(:i, "", class: "icon-edit icon-black") +  "Edit", edit_leavedate_path(leavedate), class: "remove_fields btn" ,  style: "margin:3px" %>
+    <%= link_to content_tag(:i, "", class: "icon-edit icon-black") +  "Edit", edit_leavedate_path(leavedate), class: "remove_fields btn" ,  style: "margin:4px" %>
   </div>
   </td>
   <% end %>
