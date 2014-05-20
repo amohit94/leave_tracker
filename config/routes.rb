@@ -8,6 +8,8 @@ LeaveTracker::Application.routes.draw do
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
   match '/edit_leave', to:'leavedates#add_leavedate', via: 'get'
+  match '/show_user', to:'leavedates#show_user', via: 'get'
+  match '/all_users', to:'leavedates#show_users', via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

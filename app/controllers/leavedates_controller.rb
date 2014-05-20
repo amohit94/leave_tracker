@@ -22,7 +22,8 @@ before_filter :correct_user,   only: :destroy
   end
 
 def show
-	@leavedate = Leavedate.new
+  #debugger
+	#@leavedate ||= Leavedate.new
 end
 
 private

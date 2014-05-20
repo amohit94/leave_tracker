@@ -1,0 +1,10 @@
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
+<% @users = User.all %>
+<ul class="users">
+  <% @users.each do |user| %>
+    <li>
+      <%= link_to user.name, show_user_path %>
+    </li>
+  <% end %>
+</ul>
