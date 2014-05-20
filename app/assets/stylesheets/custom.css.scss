@@ -168,3 +168,8 @@ input, textarea, select, .uneditable-input {
 input {
   height: auto !important;
 }
+
+.link{
+  color: blue;
+  :hover {background: white}
+}

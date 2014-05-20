@@ -7,18 +7,14 @@
   <span class="content"><%= leavedate.description %></span>
   </div>
   </td>
+  <% if current_user == leavedate.user %>
   <td>
   <div>
-  <span class="timestamp">
-  
-    Added <%= time_ago_in_words(leavedate.created_at) %> ago.
-  </span>
-  <% if current_user == leavedate.user %>
     <%= link_to content_tag(:i, "", class: "icon-trash icon-white") + "Delete", leavedate, method: :delete,
                                      data: { confirm: "You sure?" },
-                                     title: leavedate.date.inspect, class: "remove_fields" %>
-  <% end %>
+                                     title: leavedate.date.inspect, class: "remove_fields btn" %>
   </div>
   </td>
+  <% end %>
 </tr>
 <%end%>

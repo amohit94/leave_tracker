@@ -24,8 +24,6 @@ before_filter :correct_user,   only: :destroy
 def show
   #debugger
 	#@leavedate ||= Leavedate.new
-  date = Date.strptime(params[:leavedate][:date], "%m/%d/%Y")
-  @leavedates = Leavedate.find_by_date(date)
 end
 
 private
