@@ -1,0 +1,5 @@
+<h3>
+<%=@user.name%>
+</h3>
+<% @leavedates = @user.leavedates %>
+<%= render 'leavedates/show_leavedates' %>

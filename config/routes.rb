@@ -1,8 +1,9 @@
 LeaveTracker::Application.routes.draw do
-  resources :leavedates, only: [:create, :destroy, :new]
+  resources :leavedates, only: [:create, :destroy, :new, :show]
 
 
   devise_for :users
+  resources :users, :only => [:show]
   root  to: 'static_pages#home'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
@@ -10,6 +11,8 @@ LeaveTracker::Application.routes.draw do
   match '/edit_leave', to:'leavedates#add_leavedate', via: 'get'
   match '/show_user', to:'leavedates#show_user', via: 'get'
   match '/all_users', to:'leavedates#show_users', via: 'get'
+  match 'users/:id' => 'users#show', via: :get
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

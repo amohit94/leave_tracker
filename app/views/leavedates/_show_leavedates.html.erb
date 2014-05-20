@@ -1,9 +1,9 @@
-
+<% @leavedates ||= current_user.leavedates %>
   <div class="hero-unit">
 
-    <% if current_user.leavedates.any? and current_user.leavedates.first.date? and (current_user.leavedates.last.date==nil or current_user.leavedates.last.date>=Date.today)%>
+    <% if @leavedates.any? and @leavedates.first.date? and (@leavedates.last.date==nil or @leavedates.last.date>=Date.today)%>
 
-      <h3>Leaves (<%= current_user.leavedates.count %>)</h3>
+      <h3>Leaves (<%= @leavedates.count %>)</h3>
       <table class="table table-striped table-condensed" >
       <th style="width:200px">
       	Date
@@ -14,7 +14,7 @@
       <th style="width:300px">
       	Options
       </th>
-        <%= render current_user.leavedates %>
+        <%= render @leavedates %>
       </table>
     <% else %>
       No leaves to show.

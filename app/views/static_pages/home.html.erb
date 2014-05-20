@@ -3,8 +3,9 @@
 <h3>Welcome <strong><%= current_user.name %></strong></h3>
 </div>
 <%= render 'leavedates/show_leavedates' %>
-<%= link_to "Add Leave", edit_leave_path, class: "btn btn-large btn-link" %>
-
+<div class="center">
+<%= link_to "Want to add leaves?", edit_leave_path, class: "center btn btn-large btn-link" %>
+</div>
 <% else %>
 <div class="center hero-unit">
   <h1>Welcome to the Leave Tracker</h1>
