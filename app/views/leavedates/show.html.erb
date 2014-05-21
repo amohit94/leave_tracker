@@ -1,0 +1,16 @@
+  <div class="hero-unit">
+
+      <h3 style="margin:40px" id="upcoming">Upcoming Leaves within 2 weeks</h3>
+      <table class="table table-striped table-condensed table-bordered" style="background:#fff" >
+      <th style="width:200px">
+      	Date
+      </th>
+      <th style="width:300px">
+      	Name
+      </th>
+      <% for i in 0..13 do%>
+        <%leavedates = Leavedate.find(:all, :conditions => [ "date = ?", Date.today + i])%>
+        <%=render partial: "show_leave", locals: {leavedates: leavedates}%>
+      <%end %>
+      </table>
+  </div>

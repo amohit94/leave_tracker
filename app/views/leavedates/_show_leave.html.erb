@@ -1,0 +1,15 @@
+<%if leavedates and leavedates.count>0 %>
+<tr>
+<td>
+  <span class="date"><%= leavedates[0].date.inspect %></span></td>
+  <td>
+  <div>
+  <ul>
+  <%for i in 0..(leavedates.count-1) do%>
+    <li><span class="content"><%= leavedates[i].user.name %></span></li>
+  <%end%>
+  </ul>
+  </div>
+  </td>
+</tr>
+<%end%>

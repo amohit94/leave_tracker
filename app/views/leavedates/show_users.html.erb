@@ -3,8 +3,8 @@
 <% @users = User.all %>
 <ul class="users">
   <% @users.each do |user| %>
-    <li>
-      <%= link_to user.name.to_s+" <"+user.email.to_s+">", "users/"+user.id.to_s %>
+    <li class="link1">
+      <%= link_to user.name.to_s+" <"+user.email.to_s+">", "users/"+user.id.to_s%>
     </li>
   <% end %>
 </ul>

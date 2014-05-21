@@ -11,6 +11,7 @@ LeaveTracker::Application.routes.draw do
   match '/edit_leave', to:'leavedates#add_leavedate', via: 'get'
   match '/show_user', to:'leavedates#show_user', via: 'get'
   match '/all_users', to:'leavedates#show_users', via: 'get'
+  match '/show_leaves', to:'leavedates#show', via: 'get'
   match 'users/:id' => 'users#show', via: :get
   
   # The priority is based upon order of creation: first created -> highest priority.
