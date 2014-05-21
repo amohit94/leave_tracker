@@ -1,5 +1,5 @@
 <%if leavedate.date && leavedate.created_at and leavedate.date>=Date.today %>
-<tr>
+<tr id=<%="leave" + leavedate.id.to_s%>>
 <td>
   <span class="date"><%= leavedate.date.inspect %></span></td>
   <td>
@@ -10,7 +10,7 @@
   <% if current_user == leavedate.user %>
   <td>
   <div>
-    <%= link_to content_tag(:i, "", class: "icon-remove icon-black") + "Delete", leavedate, method: :delete,
+    <%= link_to content_tag(:i, "", class: "icon-remove icon-black") + "Delete", leavedate, method: :delete,remote: true,
                                      data: { confirm: "You sure?" },
                                      title: leavedate.date.inspect, class: "remove_fields btn", style: "margin:3px" %>
     <%= link_to content_tag(:i, "", class: "icon-edit icon-black") +  "Edit", edit_leavedate_path(leavedate), class: "remove_fields btn" ,  style: "margin:4px" %>

@@ -18,7 +18,15 @@ before_filter :correct_user,   only: :destroy
   
   def destroy
     @leavedate.destroy
-    redirect_to root_url
+    #@x = @leavedate.user.leavedates.count
+    respond_to do |format|
+      format.html { 
+        #user = User.find(@post.user_id)
+        #redirect_to @user 
+      }
+      format.js
+    end
+    #redirect_to root_url
   end
 
 def show

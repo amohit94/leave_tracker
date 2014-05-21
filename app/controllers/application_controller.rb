@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :name
     devise_parameter_sanitizer.for(:account_update) << :name
   end
+
+  def mohit
+    @leavedates||=current_user.leavedates
+  end
 end
